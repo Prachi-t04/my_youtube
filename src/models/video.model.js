@@ -20,7 +20,7 @@ const videoSchema = new Schema(
             required: true
         },
           duration: {
-            type: Number,
+            type: Number, //will get it through cloudinary itself
             required: true
         },
         views: {
@@ -40,5 +40,8 @@ const videoSchema = new Schema(
         timestamps:true
     }
 )
+
+videoSchema.plugin(mongooseAggregatePaginate)
+
 
 export const Video = mongoose.model("Video", videoSchema)
